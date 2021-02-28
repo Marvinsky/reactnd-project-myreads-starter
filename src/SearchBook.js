@@ -2,14 +2,10 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import * as BooksAPI from './BooksAPI';
+import {DebounceInput} from 'react-debounce-input';
 import Book from './Book'
 
-class Search extends Component {
-
-    static PropTypes = {
-      booksOnShelf: PropTypes.array.isRequired,
-      reloadShelves: PropTypes.func.isRequired
-    }
+class SearchBook extends Component {
 
     state = {
       query: '',
@@ -17,8 +13,7 @@ class Search extends Component {
     }
 
     reloadListBooks = (query) => {
-      this.setState({query: query.trim()})
-      if (query.trim()) {
+      if (query.trim() && query.length) {
         BooksAPI.search(query)
           .then((matchingBooks) => {
             if (matchingBooks && matchingBooks.length) {
@@ -28,6 +23,8 @@ class Search extends Component {
               this.setState({searchedBooks: []})
             }
         })
+      } else {
+        this.setState({searchedBooks: []})
       }
     }
 
@@ -57,7 +54,8 @@ class Search extends Component {
                 Close
               </Link>              
               <div className="search-books-input-wrapper">
-                <input 
+                <DebounceInput
+                debounceTimeout={500}
                 type="text"
                 placeholder="Search by title or author"
                 value={query}
@@ -82,4 +80,9 @@ class Search extends Component {
     }
 }
 
-export default Search;
+SearchBook.propTypes = {
+  booksOnShelf: PropTypes.array.isRequired,
+  reloadShelves: PropTypes.func.isRequired
+}
+
+export default SearchBook;

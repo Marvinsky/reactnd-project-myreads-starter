@@ -1,3 +1,50 @@
+# Description of the project
+
+# Name of the project
+BookShelf
+
+# tree
+```
+├── public
+├── src
+    ├── App.css
+    ├── App.js
+    ├── App.test.js
+    ├── BooksAPI.js
+    ├── icons
+    │   ├── add.svg
+    │   ├── arrow-back.svg
+    │   └── arrow-drop-down.svg
+    ├── index.css
+    └── index.js
+    ├── Book.js
+    ├── DropDown.js
+    └── BookShelf.js
+    ├── ListBook.js
+    └── SearchBook.js
+```
+# Feature: List of books
+App.js -> ListBooks -> BookShelf -> Book -> DropDown
+
+We can see the list of books available in the main screen of the web application. There are three categories: 
+<ul>
+    <li>Currently Reading</li>
+    <li>Want to Read</li>
+    <li>Read</li>
+</ul>
+
+Also, we have the feature to move the book from one category to another category.
+
+# Feature: Search of book
+App.js -> SearchBook -> Book -> DropDown
+
+We can search the books from a list of available books in an external server. When the input is empty no books are displayed
+until we change the input.
+
+# Authors and acknowledgment
+Marvin Abisrror && Udacity Team
+
+
 # MyReads Project
 
 This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.

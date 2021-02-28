@@ -28,8 +28,8 @@ const DropDown = ({book, onChangeShelf}) => {
         );
 }
 
-DropDown.PropTypes = {
-    book: PropTypes.array.isRequired,
+DropDown.propTypes = {
+    book: PropTypes.object.isRequired,
     onChangeShelf: PropTypes.func.isRequired
 };
 
