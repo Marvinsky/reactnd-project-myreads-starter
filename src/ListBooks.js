@@ -6,12 +6,6 @@ import PropTypes from 'prop-types'
 
 class ListBooks extends Component {
 
-    static PropTypes = {
-      books: PropTypes.array.isRequired,
-      reloadList: PropTypes.func.isRequired
-    }
-  
-
     render() {
         const { books, reloadList } = this.props; 
         const showingCurrent = (shelf) => (
@@ -58,6 +52,11 @@ class ListBooks extends Component {
           </div>
         )
     }
+}
+
+ListBooks.PropTypes = {
+    books: PropTypes.array.isRequired,
+    reloadList: PropTypes.func.isRequired
 }
 
 export default ListBooks;

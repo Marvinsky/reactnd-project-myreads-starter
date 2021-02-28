@@ -7,23 +7,21 @@ class Book extends Component {
         const { book, onChangeShelf } = this.props;
         const { title, authors, imageLinks } = book;
         return (
-            <li key={book.id}>
               <div className="book">
                 <div className="book-top">
                   <div className="book-cover" 
                   style={{ 
                     width: 128, 
                     height: 193, 
-                    backgroundImage: `url(${imageLinks ? imageLinks.thumbnail : '' })` }}></div>
+                    backgroundImage: `url(${imageLinks ? imageLinks.thumbnail : '' })` }}>
+                  </div>
                   <DropDown
                     book={book}
                     onChangeShelf={onChangeShelf} />
                 </div>
-              </div>
-              <div className="book-title">{authors ? authors.join(', ') : ''}</div>
-              <div className="book-authors">{title}</div>
-            </li>
-            
+                <div className="book-title">{authors ? authors.join(', ') : ''}</div>
+                <div className="book-authors">{title}</div>
+              </div>      
         )
     }
 }
